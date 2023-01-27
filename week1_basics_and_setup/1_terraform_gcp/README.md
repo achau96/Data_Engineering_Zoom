@@ -9,5 +9,5 @@
 Create a virtual machine on GCP using Google Compute Engine
 Set up SSH Key.
 ```
-ssh-keygen -t rsa -f C:\Users\Austin\.ssh\gcp -C austin -b 2048
+ssh-keygen -t rsa -f C:\Users\WINDOWS_USER\.ssh\KEY_FILENAME -C USERNAME -b 2048
 ```

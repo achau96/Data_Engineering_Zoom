@@ -28,6 +28,12 @@ https://github.com/sindresorhus/guides/blob/main/docker-without-sudo.md
 
 Install Docker Compose from GitHub releases and put into a bin directory and give it executable property with `chmod +x docker-compose`
 
+Command to refresh Linux instance (Example -> after changing paths or downloading anaconda)
+`source .bashrc` 
+
+Adding a path to .bashrc
+`export PATH="${HOME}/bin:${PATH}"`
+
 Ran into issue where conda was stuck at solving environment, might 
 have worked but would take too long due to long list of packages and different version included. Therefore, we create a new environment which uses the latest packages by using the command:
 `conda create --name myenv` or with a specific version of python

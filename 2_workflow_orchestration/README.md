@@ -21,4 +21,6 @@ ELT provides data lake support.
 
 Governing your data flow in a way that respects orchestration rules in your business logistics.
 
-Allow you to turn any code to 
+Downloaded anaconda for windows -> looked for conda.sh folder in Anaconda3/etc/profile.d/conda.sh and ran command to get conda environment in Git Bash.
+
+`echo ". ${PWD}/conda.sh" >> ~/.bashrc`

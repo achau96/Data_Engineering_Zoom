@@ -25,8 +25,22 @@ Downloaded anaconda for windows -> looked for conda.sh folder in Anaconda3/etc/p
 
 `echo ". ${PWD}/conda.sh" >> ~/.bashrc`
 
+Installing requirements through file (set up different env first) :
+`pip install -r requirements.txt`
+
+
 # 2.2.2 - Introduction to Prefect Concepts
 Rearranged script into a flow. 
+`conda activate (env)`
 Created a basic ETL to ingest the data, clean out rows with passenger count of 0, and load it into postgres!
 Check dashboard for all logs with command:
 `prefect orion start`
+
+# 2.2.3 - ETL with GCP & Prefect
+Retries are helpful in flows just in case sometimes it doesn't work. 
+Converted data to parquet file using pandas.
+Cleaned data to remove dtype warning.
+Downloaded gcs bucket on prefect Api and configured it to a bucket on gcp. Added cred key for safe transfer.
+Added to code and loaded clean data to bucket!
+
+# 2.2.4 - From google cloud storage to big query

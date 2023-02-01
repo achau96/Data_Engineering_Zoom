@@ -24,3 +24,9 @@ Governing your data flow in a way that respects orchestration rules in your busi
 Downloaded anaconda for windows -> looked for conda.sh folder in Anaconda3/etc/profile.d/conda.sh and ran command to get conda environment in Git Bash.
 
 `echo ". ${PWD}/conda.sh" >> ~/.bashrc`
+
+# 2.2.2 - Introduction to Prefect Concepts
+Rearranged script into a flow. 
+Created a basic ETL to ingest the data, clean out rows with passenger count of 0, and load it into postgres!
+Check dashboard for all logs with command:
+`prefect orion start`

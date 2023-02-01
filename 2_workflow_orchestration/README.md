@@ -44,3 +44,5 @@ Downloaded gcs bucket on prefect Api and configured it to a bucket on gcp. Added
 Added to code and loaded clean data to bucket!
 
 # 2.2.4 - From google cloud storage to big query
+In this tutorial, we learned how to move data from google cloud storage to big query.
+The first step was to make a similar python file compared to the last tutorial. 

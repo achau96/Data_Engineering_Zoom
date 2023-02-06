@@ -1,17 +1,25 @@
 from prefect.deployments import Deployment
-from etl_web_to_gcs import etl_web_to_gcs
-from prefect.filesystems import GitHub
+from etl_web_to_gcs_hmk import etl_web_to_gcs
+from prefect.filesystems import GitHub 
 
-github_block = GitHub.load("zoom-github")
+storage = GitHub.load("zoom-github")
 
-github_dep = Deployment.build_from_flow(
-    flow=etl_web_to_gcs,
-    name="docker-flow",
-    infrastructure=github_block,
-)
-
+deployment = Deployment.build_from_flow(
+     flow=etl_web_to_gcs,
+     name="github-example",
+     storage=storage,
+     entrypoint="2_workflow_orchestration/flows/02_gcp/etl_web_to_gcs_hmk.py:etl_web_to_gcs")
 
 if __name__ == "__main__":
-    github_dep.apply()
+    deployment.apply()
 
-# for homework # 4, set -p color to green taxi for month nov (11)
+
+
+
+
+# prefect deployment build flows/02_gcp/etl_web_to_gcs_hmk.py:etl_web_to_gcs --name github_deploy --tag dev -sb github/zoom-github -a
+
+	
+# prefect deployment run etl-web-to-gcs/github_deploy
+
+# prefect deployment build -n etl_github -sb github/zoom-github  ./2_workflow_orchestration/flows/02_gcp/etl_web_to_gcs_hmk.py:etl_web_to_gcs -a

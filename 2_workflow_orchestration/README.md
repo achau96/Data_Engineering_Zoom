@@ -81,3 +81,7 @@ shows all profiles. Comes with default.
 
 Run prefect deployment with different parameters:
 `prefect deployment run etl-parent-flow/docker-flow -p "months=[1,2]"`
+
+To switch between cloud and local or any other workspaces, you can use:
+`prefect profile use dev # or prod or any other profile`
+Check  https://discourse.prefect.io/t/managing-environments-with-prefect-2-0-dev-staging-prod/1071 for more details!

@@ -14,6 +14,14 @@ How many rows does that dataset have?
 * 299,234
 * 822,132
 
+Change to code:
+```
+    color = "green"
+    year = "2020"
+    month = 1
+```
+Also removed the cleaning of data as green taxi data did not need it.
+Answer: 447 770
 
 ## Question 2. Scheduling with Cron
 
@@ -26,6 +34,9 @@ Using the flow in `etl_web_to_gcs.py`, create a deployment to run on the first o
 - `5 * 1 0 *`
 - `* * 5 1 0`
 
+Can just use parent flow as it is etl_web_to_gcs with custom parameters for months. (Creates multiple etl_web_to_gcs flows for each month and loads all of them)
+`prefect deployment build flows/03_deployments/parameterized_flow.py:etl_web_to_gcs -n etl2 --cron "0 0 * * * -a`
+Answer: 0 5 1 * *
 
 ## Question 3. Loading data to BigQuery 
 
@@ -46,7 +57,9 @@ Make sure you have the parquet data files for Yellow taxi data for Feb. 2019 and
 - 27,235,753
 - 11,338,483
 
-
+Step 1 is to use our parameterized flow file to process Feb and March 2019 into GCS.
+Step 2 we load them into BigQuery. 
+Answer: 14,851,920
 
 ## Question 4. Github Storage Block
 

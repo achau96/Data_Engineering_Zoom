@@ -2,3 +2,4 @@
 *.parquet
 data/yellow
 ny_taxi_postgres_data
+data

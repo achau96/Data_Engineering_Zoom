@@ -46,3 +46,38 @@ Added to code and loaded clean data to bucket!
 # 2.2.4 - From google cloud storage to big query
 In this tutorial, we learned how to move data from google cloud storage to big query.
 The first step was to make a similar python file compared to the last tutorial. 
+We create a big query storage and store the transformed data from the google cloud storage onto there.
+Having the transformed data loaded on here lets analysts, machine learners and visual analysts use this data.
+
+# 2.2.5 - PParametrizing Flow & Deployments with ETL into GCS flow
+Set up deployment for code to automonously set pipeline (maybe runs on schedule)
+Tell prefect what to expect. Could have multiple deployments for one code.
+Allows us to make work queues on prefect.
+
+Command for setting up a deployment based of py flow:
+`prefect deployment build ./parameterized_flow.py:etl_parent_flow -n "Parameterized ETL"`
+
+Command for apply agent based off built yaml file:
+`prefect deployment apply etl_parent_flow-deployment.yaml`
+
+Command for starting deployment:
+`prefect agent start -q 'default'`
+
+# 2.2.6 - Schedules & Docker Storage with Infrastructure
+Add schedule on prefect - can choose between Interval, Cron or RRule.
+Can also schedule via CLI when creating deployments by:
+`prefect deployment build flows/03_deployments/parameterized_flow.py:etl_parent_flow -n etl2 --cron "0 0 * * * -a`
+Will create deployment at 12am everyday.
+
+`prefect deployment build ./parameterized_flow.py:etl_parent_flow -n "Parameterized ETL" --cron "0 0 * * * -a"` 
+Set to go every day at 12 am.
+"minute hour day(of month) month day(of week)"
+
+Error: failed to solve with frontend dockerfile.v0:
+Solution: rename dockerfile to specifically `Dockerfile` as it is the default name docker searches for unless you specify the file name.
+
+`prefect profile ls`
+shows all profiles. Comes with default. 
+
+Run prefect deployment with different parameters:
+`prefect deployment run etl-parent-flow/docker-flow -p "months=[1,2]"`

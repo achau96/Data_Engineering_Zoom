@@ -85,3 +85,13 @@ Run prefect deployment with different parameters:
 To switch between cloud and local or any other workspaces, you can use:
 `prefect profile use dev # or prod or any other profile`
 Check  https://discourse.prefect.io/t/managing-environments-with-prefect-2-0-dev-staging-prod/1071 for more details!
+
+Also had to change write_local path to match:
+```
+@task()
+def write_local(df: pd.DataFrame, color: str, dataset_file: str) -> Path:
+    """Write DataFrame out as a local parquet file"""
+    path = Path(f"2_workflow_orchestration/data/{color}/{dataset_file}.parquet")
+    df.to_parquet(path, compression="gzip") # need pyarrow for compression, it is installed with file
+    return path
+```

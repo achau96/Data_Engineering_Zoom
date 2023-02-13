@@ -22,3 +22,24 @@ Integer range partitioning
 When using Time unit or Ingestion Time - Daily, Hourly, Monthly or Yearly
 Number of partitions limit is 4000
 More at https://cloud.google.com/bigquery/docs/partitioned-tables
+
+## 3.2.1 - BigQuery Best Practices
+Cost reduction:
+- Avoid select *
+- Price queries before running
+- Use clustered or partitioned tables
+- Use streaming inserts with caution
+- Materialize query results in stages
+
+Query Performance:
+- Filter on partitioned columns
+- Denomalizing data
+- Use nested or repeated columns
+- Use external data sources appropriately
+- Don't use it, in case you want high query performance
+- Reduce data before using a JOIN
+- Do not treate WITH clauses as prepared statements
+- Avoid oversharding tables
+- Avoid javascript user-define functions
+
+## 3.2.2 - Internals of Big Query

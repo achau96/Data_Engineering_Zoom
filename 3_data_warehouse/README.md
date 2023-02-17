@@ -43,3 +43,12 @@ Query Performance:
 - Avoid javascript user-define functions
 
 ## 3.2.2 - Internals of Big Query
+Compute and storage on different hardware - how do they communicate with each other?
+Jupiter network of big query - inside big query data centers, provides 1 TB/s network speed.
+Dremel - big query execution sections - each node can compute indivudal subset of query.
+Record-oriented vs column-oriented storage. Big Query uses column.
+Dremel - capable of divide query into small sub-modules - leaf nodes fetch data and executes aggregation.
+
+## 3.3.1 - BigQuery Machine Learning
+- Data Analysts, managers
+- ML - first 10 gb per month free, 1TB of queries processed is free

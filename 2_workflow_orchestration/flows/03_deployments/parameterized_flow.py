@@ -19,6 +19,12 @@ def clean(df = pd.DataFrame) -> pd.DataFrame:
     """Fix dtype issues"""
     df['tpep_pickup_datetime'] = pd.to_datetime(df['tpep_pickup_datetime'])
     df['tpep_dropoff_datetime'] = pd.to_datetime(df['tpep_dropoff_datetime'])
+
+########### FIX GREEN TAXI DATA ###############
+    # df['passenger_count'] = df['passenger_count'].astype(float)
+    # df['trip_distance'] = df['trip_distance'].astype(float)
+    # df['payment_type'] = df['payment_type'].astype(int)
+    # df['trip_type'] = df['trip_type'].astype(int)
     print(df.head(2))
     print(f"columns: {df.dtypes}")
     print(f"rows: {len(df)}")
@@ -62,6 +68,6 @@ def etl_parent_flow(
 
 if __name__ == '__main__':
     color = 'yellow'
-    months = [2,3]
+    months = [1,2,3]
     year = 2019
     etl_parent_flow(months, year, color)

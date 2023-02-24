@@ -21,8 +21,8 @@ def etl_parent_flow(
 
 
 if __name__ == '__main__':
-    color = 'green'
-    months = [12]
+    color = 'yellow'
+    months = [10,11,12]
     year = 2019
     etl_parent_flow(months, year, color)
 

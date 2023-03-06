@@ -22,6 +22,12 @@ Downloading Spark on VM -> https://github.com/DataTalksClub/data-engineering-zoo
 
 Start VM similar to week 1, install spark and anaconda. Use jupyter notebook to test as shown in video. Spark runs on local host 4040. 
 
+Current version of pyspark:
+```
+export PYTHONPATH="${SPARK_HOME}/python/:$PYTHONPATH"
+export PYTHONPATH="${SPARK_HOME}/python/lib/py4j-0.10.9.5-src.zip:$PYTHONPATH"
+```
+
 ## 5.3.1 - First Look at Spark/PySpark
 
 Use this instead of video method of creating new file due to gz file:
